@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import NavigationBar from "../components/NavigationBar.astro";
+import MainPage from "./MainPage.astro";
+type Props = CollectionEntry<"blog">["data"];
+const { title, pubDate } = Astro.props;
+---
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .blog-post-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .header h1 {
+    font-size: 1.5vw;
+  }
+
+  #privacy {
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+</style>
+<MainPage title={title}>
+  <nav><NavigationBar /></nav>
+  <main class="container">
+    <article class="blog-post-content">
+      <div class="prose">
+        <div class="title">
+          <h1>{title}</h1>
+          <div class="date">
+            <FormattedDate pubDate={pubDate} />
+          </div>
+        </div>
+        <br />
+        <hr />
+        <!-- The content of the Markdown file will be shown here -->
+        <slot />
+      </div>
+    </article>
+  </main>
+</MainPage>

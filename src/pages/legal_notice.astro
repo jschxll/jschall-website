@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import NavigationBar from "../components/NavigationBar.astro";
+import MainPage from "../layouts/MainPage.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const LATEST_POST = posts[0];
+---
+
+<MainPage title="Legal Notice">
+  <nav><NavigationBar /></nav>
+  <span> </span>
+  <div class="container">
+    <p>
+      ...and here you find important information in order to run this website.
+    </p>
+    <p>
+      <h3>Address</h3>
+      Jens Schall<br />
+      Ricarda-Huch-Straße 29<br />
+      52353 Düren <br />
+      Germany
+      <h3>Contact</h3>
+      contact@jschall.net
+    </p>
+  </div>
+</MainPage>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+</style>

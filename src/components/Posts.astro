@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<ul>
+  {
+    posts.map((post) => (
+      <>
+        <li>
+          <a href={`/posts/${post.slug}`}>
+            <span class="title">
+              {post.data.title} &lt;
+              <FormattedDate pubDate={post.data.pubDate} />&gt;
+            </span>
+          </a>
+        </li>
+      </>
+    ))
+  }
+</ul>
+
+<style>
+  li a {
+    text-decoration: underline;
+    color: white;
+  }
+
+  li {
+    padding: 5px;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import PrivacyPolicies from "../components/PrivacyPolicies.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <PrivacyPolicies />
+  </body>
+</html>
+<style is:global>
+  @font-face {
+    font-family: JetBrainsMono;
+    src: url("/font/JetBrainsMono-VariableFont_wght.ttf");
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    color: white;
+    font-family: JetBrainsMono;
+  }
+
+  html {
+    background: #121212;
+  }
+
+  div {
+    max-width: 650px;
+  }
+
+  a {
+    color: #03DAC6;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 716px) {
+    body {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+</style>

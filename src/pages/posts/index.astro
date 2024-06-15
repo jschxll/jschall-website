@@ -1,0 +1,50 @@
+---
+import Posts from "../../components/Posts.astro";
+import NavigationBar from "../../components/NavigationBar.astro";
+import PostsLayout from "../../layouts/PostsLayout.astro";
+---
+
+<PostsLayout title="Posts">
+  <div class="container">
+    <nav><NavigationBar /></nav>
+    <div class="posts">
+      <article>
+        <Posts />
+      </article>
+    </div>
+  </div>
+</PostsLayout>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .container {
+    width: 650px;
+    max-width: 650px;
+    margin: auto;
+  }
+
+  .posts {
+    padding-top: 80px;
+  }
+
+  article {
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .container {
+      width: 100%;
+    }
+
+    article {
+      margin: 0;
+    }
+  }
+</style>

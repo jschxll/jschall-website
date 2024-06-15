@@ -1,0 +1,97 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import NavigationBar from "../components/NavigationBar.astro";
+import MainPage from "../layouts/MainPage.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const LATEST_POST = posts[0];
+---
+
+<MainPage title="Willkommen 👋">
+  <nav><NavigationBar /></nav>
+  <div class="container">
+    <pre>
+ _       __     __
+| |     / /__  / /________  ____ ___  ___
+| | /| / / _ \/ / ___/ __ \/ __ `__ \/ _ \
+| |/ |/ /  __/ / /__/ /_/ / / / / / /  __/
+|__/|__/\___/_/\___/\____/_/ /_/ /_/\___/
+    </pre>
+    <header id="header">
+      <span>
+        Hi, my name is Jan and I'm interested in (almost) everything in computer
+        science.<br /> At the moment I'm interested in AI and Linux, but also in
+        IoT and programming. I mostly work with Java, Python and HTML. However, for
+        IoT projects with ESPs or Arduinos, I use C/C++ in combination with the Arduino
+        Framework.
+      </span>
+    </header>
+    <br />
+    <details>
+      <summary>Gear I'm using</summary>
+      <p>
+        <strong>Laptop:</strong><br />
+        Asus ROG Zephyrus M16 (Windows, Linux Mint)<br />
+        <strong>Smartphone</strong>
+        <br />
+        Google Pixel 7 <br />
+        <strong>Headphones</strong>
+        <br />
+        Samsung Buds 2 <br />
+        <strong>Server</strong>
+        <br />
+        HP ProDesk 600 G3 (Proxmox VE) <br />
+        Raspberry Pie 5 8gb RAM (DietPie)
+      </p>
+    </details>
+    <main>
+      <h2>Recent Posts</h2>
+      <a class="recent-posts" href={`/posts/${LATEST_POST.slug}`}>
+        {LATEST_POST.data.title}&lt;<FormattedDate
+          pubDate={LATEST_POST.data.pubDate}
+        />&gt;
+      </a>
+      <br />
+      <a class="recent-posts" href=`/posts/${posts[1].slug}`
+        >{posts[1].data.title} &lt;<FormattedDate
+          pubDate={posts[1].data.pubDate}
+        />&gt;</a>
+    </main>
+  </div>
+</MainPage>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  details strong {
+    color: #bb86fc;
+  }
+
+  .recent-posts {
+    color: #03dac6;
+    text-decoration: underline;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+
+  .spacer {
+    padding: 15px;
+  }
+</style>

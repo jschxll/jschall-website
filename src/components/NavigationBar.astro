@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from "astro:content";
+import HeaderLink from "./HeaderLink.astro";
+import { getCollection } from "astro:content";
+type Props = CollectionEntry<"blog">["data"];
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+<nav>
+  <div>
+    <HeaderLink href="/">Home</HeaderLink>
+    <!-- Direct forwarding to the last post -->
+    <HeaderLink href=`/posts`>Posts</HeaderLink>
+    <HeaderLink href="/posts/feed.xml">RSS</HeaderLink>
+  </div>
+  <div>
+    <a href="https://github.com/j-schall" rel="me">Github</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1E1E1E;
+    box-shadow: 0 0 10px rgba(156, 155, 155, 0.468);
+    border-radius: 8px;
+    width: 100%;
+    padding: 10px;
+    max-width: 650px;
+  }
+
+  nav a {
+    color: #bb86fc;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  nav a:first-child,
+  nav a:last-child {
+    padding: 0;
+  }
+</style>
