@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import NavigationBar from "../components/NavigationBar.astro";
+import MainPage from "./MainPage.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+type Props = CollectionEntry<"comments">["data"];
+const { pubDate } = Astro.props;
+---
+
+<MainPage title="Comments">
+  <nav><NavigationBar /></nav>
+  <div class="container">
+    <h3><FormattedDate pubDate={pubDate} /></h3>
+    <slot />
+  </div>
+</MainPage>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+</style>

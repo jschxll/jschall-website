@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 
-type Props = CollectionEntry<"blog">["data"];
-const posts = (await getCollection("blog")).sort(
+type Props = CollectionEntry<"posts">["data"];
+const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---

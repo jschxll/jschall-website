@@ -1,21 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import HeaderLink from "./HeaderLink.astro";
-import { getCollection } from "astro:content";
-type Props = CollectionEntry<"blog">["data"];
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
 ---
 <nav>
   <div>
     <HeaderLink href="/">Home</HeaderLink>
     <!-- Direct forwarding to the last post -->
     <HeaderLink href=`/posts`>Posts</HeaderLink>
-    <HeaderLink href="/posts/feed.xml">RSS</HeaderLink>
+    <HeaderLink href="/comments/all">Comments</HeaderLink>
   </div>
   <div>
-    <a href="https://github.com/j-schall" rel="me">Github</a>
+    <a href="https://github.com/j-schall">Github</a>
   </div>
 </nav>
 

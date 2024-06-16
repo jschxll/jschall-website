@@ -1,0 +1,19 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import CommentLayout from "../../layouts/CommentLayout.astro";
+
+export async function getStaticPaths() {
+    const comments = await getCollection("comments");
+    return comments.map((comment) => ({
+        params: { slug: comment.slug },
+        props: comment,
+    }));
+}
+type Props = CollectionEntry<"comments">;
+
+const comment = Astro.props;
+const { Content } = await comment.render();
+---
+<CommentLayout {...comment.data}>
+    <Content />
+</CommentLayout>

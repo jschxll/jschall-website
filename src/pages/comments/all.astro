@@ -1,0 +1,30 @@
+---
+import Comments from "../../components/Comments.astro";
+import NavigationBar from "../../components/NavigationBar.astro";
+import MainPage from "../../layouts/MainPage.astro";
+---
+
+<MainPage title="Random Comments">
+  <nav><NavigationBar /></nav>
+  <div class="container">
+    <h2>🗒️Comments</h2>
+    <span>Discover random comments and notes by me</span>
+    <hr />
+    <Comments />
+  </div>
+</MainPage>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+</style>

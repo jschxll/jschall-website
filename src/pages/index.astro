@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import NavigationBar from "../components/NavigationBar.astro";
 import MainPage from "../layouts/MainPage.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import RecentPost from "../components/RecentPost.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const posts = (await getCollection("blog")).sort(
@@ -22,13 +23,7 @@ const LATEST_POST = posts[0];
 |__/|__/\___/_/\___/\____/_/ /_/ /_/\___/
     </pre>
     <header id="header">
-      <span>
-        Hi, my name is Jan and I'm interested in (almost) everything in computer
-        science.<br /> At the moment I'm interested in AI and Linux, but also in
-        IoT and programming. I mostly work with Java, Python and HTML. However, for
-        IoT projects with ESPs or Arduinos, I use C/C++ in combination with the Arduino
-        Framework.
-      </span>
+      <span> 👋 Hi, my name is Jan and this is my personal site. </span>
     </header>
     <br />
     <details>
@@ -49,7 +44,11 @@ const LATEST_POST = posts[0];
       </p>
     </details>
     <main>
-      <h2>Recent Posts</h2>
+      <div id="header-posts">
+        <img src="/img/feed_icon.svg" />
+        <h2>Recent Posts & News</h2>
+      </div>
+      <!-- 
       <a class="recent-posts" href={`/posts/${LATEST_POST.slug}`}>
         {LATEST_POST.data.title}&lt;<FormattedDate
           pubDate={LATEST_POST.data.pubDate}
@@ -60,6 +59,8 @@ const LATEST_POST = posts[0];
         >{posts[1].data.title} &lt;<FormattedDate
           pubDate={posts[1].data.pubDate}
         />&gt;</a>
+      -->
+      <RecentPost />
     </main>
   </div>
 </MainPage>
@@ -69,6 +70,14 @@ const LATEST_POST = posts[0];
     display: flex;
     justify-content: center;
     margin-top: 10px;
+  }
+
+  #header-posts {
+    display: flex;
+  }
+
+  #header-posts h2 {
+    margin-left: 3px;
   }
 
   details strong {

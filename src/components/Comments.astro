@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+import CommentLayout from "../layouts/CommentLayout.astro";
+
+type Props = CollectionEntry<"comments">["data"];
+const comments = (await getCollection("comments")).sort(
+  (last, recent) => recent.data.pubDate.valueOf() - last.data.pubDate.valueOf()
+);
+---
+
+{
+  comments.map((comment, index) => (
+    <>
+      <article>
+        <div class="content">
+          <h3>
+            <a href=`/comments/${comment.slug}`><FormattedDate pubDate={comment.data.pubDate} /></a>
+          </h3>
+          <p>{comment.body}</p>
+        </div>
+        {index < comments.length-1 && <hr />}
+      </article>
+    </>
+  ))
+}
+
+<style>
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+  .content {
+    padding: 10px;
+  }
+</style>
