@@ -1,17 +1,21 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import NavigationBar from "../components/NavigationBar.astro";
 import MainPage from "./MainPage.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 type Props = CollectionEntry<"comments">["data"];
-const { pubDate } = Astro.props;
+const { id, pubDate } = Astro.props;
+const comments = (await getCollection("comments")).sort(
+  (last, recent) => recent.data.pubDate.valueOf() - last.data.pubDate.valueOf()
+);
 ---
 
 <MainPage title="Comments">
   <nav><NavigationBar /></nav>
   <div class="container">
-    <h3><FormattedDate pubDate={pubDate} /></h3>
+    <h2>#{id}</h2>
     <slot />
+    <span><FormattedDate pubDate={pubDate} /></span>
   </div>
 </MainPage>
 
@@ -20,6 +24,11 @@ const { pubDate } = Astro.props;
     display: flex;
     justify-content: center;
     margin-top: 10px;
+  }
+
+  span {
+    font-size: smaller;
+    float: right;
   }
 
   .container {

@@ -14,6 +14,7 @@ const comments = defineCollection({
     type: "content",
     schema: z.object({
         pubDate: z.coerce.date(),
+        id: z.number(),
     }),
 });
 

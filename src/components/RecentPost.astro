@@ -29,7 +29,9 @@ const LATEST_COMMENT = comments[0];
 <hr />
 <article>
   <div class="items">
-    <a class="link" href={`/comments/${LATEST_COMMENT.slug}`}><FormattedDate pubDate={LATEST_COMMENT.data.pubDate} /></a>
+    <a class="link" href={`/comments/${LATEST_COMMENT.slug}`}
+      ><FormattedDate pubDate={LATEST_COMMENT.data.pubDate} /></a
+    >
     <p>
       {LATEST_COMMENT.body}
       <br />
