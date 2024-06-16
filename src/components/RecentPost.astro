@@ -5,6 +5,7 @@ const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 const LATEST_POST = posts[0];
+
 const comments = (await getCollection("comments")).sort(
   (last, recent) => recent.data.pubDate.valueOf() - last.data.pubDate.valueOf()
 );
@@ -28,7 +29,7 @@ const LATEST_COMMENT = comments[0];
 <hr />
 <article>
   <div class="items">
-    <a class="link" href={`/posts/${LATEST_COMMENT.slug}`}><FormattedDate pubDate={LATEST_POST.data.pubDate} /></a>
+    <a class="link" href={`/comments/${LATEST_COMMENT.slug}`}><FormattedDate pubDate={LATEST_COMMENT.data.pubDate} /></a>
     <p>
       {LATEST_COMMENT.body}
       <br />

@@ -1,15 +1,7 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import NavigationBar from "../components/NavigationBar.astro";
 import MainPage from "../layouts/MainPage.astro";
-import FormattedDate from "../components/FormattedDate.astro";
 import RecentPost from "../components/RecentPost.astro";
-
-type Props = CollectionEntry<"blog">["data"];
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-const LATEST_POST = posts[0];
 ---
 
 <MainPage title="Willkommen 👋">
@@ -48,18 +40,6 @@ const LATEST_POST = posts[0];
         <img src="/img/feed_icon.svg" />
         <h2>Recent Posts & News</h2>
       </div>
-      <!-- 
-      <a class="recent-posts" href={`/posts/${LATEST_POST.slug}`}>
-        {LATEST_POST.data.title}&lt;<FormattedDate
-          pubDate={LATEST_POST.data.pubDate}
-        />&gt;
-      </a>
-      <br />
-      <a class="recent-posts" href=`/posts/${posts[1].slug}`
-        >{posts[1].data.title} &lt;<FormattedDate
-          pubDate={posts[1].data.pubDate}
-        />&gt;</a>
-      -->
       <RecentPost />
     </main>
   </div>
