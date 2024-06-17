@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 const posts = (await getCollection("posts")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -35,7 +35,7 @@ const LATEST_COMMENT = comments[0];
     <p>
       {LATEST_COMMENT.body}
       <br />
-      <a class="link" href={`/comments/all`}>Read more...</a>
+      <a class="link" href={`/comments`}>Read more...</a>
     </p>
   </div>
 </article>

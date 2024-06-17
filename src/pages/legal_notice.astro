@@ -1,14 +1,6 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import NavigationBar from "../components/NavigationBar.astro";
 import MainPage from "../layouts/MainPage.astro";
-import FormattedDate from "../components/FormattedDate.astro";
-
-type Props = CollectionEntry<"blog">["data"];
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-const LATEST_POST = posts[0];
 ---
 
 <MainPage title="Legal Notice">
@@ -16,7 +8,7 @@ const LATEST_POST = posts[0];
   <span> </span>
   <div class="container">
     <p>
-      ...and here you find important information in order to run this website.
+      ...and here you find important information in order to run this website. If this bores you, please skip this site ._.
     </p>
     <p>
       <h3>Address</h3>

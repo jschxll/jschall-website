@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
-import CommentLayout from "../layouts/CommentLayout.astro";
 
 type Props = CollectionEntry<"comments">["data"];
 const comments = (await getCollection("comments")).sort(
