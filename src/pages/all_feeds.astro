@@ -1,0 +1,48 @@
+---
+import MainPage from "../layouts/MainPage.astro";
+import NavigationBar from "../components/NavigationBar.astro";
+---
+
+<MainPage title="All feeds">
+  <nav><NavigationBar /></nav>
+  <div class="container">
+    <h2>Find feeds of posts & comments from me</h2>
+    <span>This site contains all feeds, including posts and comments. By subscribing to the feeds, you receive the newest changes from this website without being on the web📭. It's completely free!</span>
+    <br />
+    <a href="https://indieweb.org/RSS">Don't know what a RSS feed is?</a>
+    <article>
+        <ul>
+            <li><a href="/posts/feed.xml">All posts</a></li>
+            <li><a href="/comments/feed.xml">All comments</a></li>
+        </ul>
+    </article>
+  </div>
+</MainPage>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  article {
+    margin-top: 50px;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .container {
+    flex-direction: column;
+    padding-top: 50px;
+    margin: 0;
+    height: 100%;
+  }
+</style>

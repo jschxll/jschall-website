@@ -16,8 +16,7 @@ const posts = (await getCollection("posts")).sort(
         <li>
           <a href={`/posts/${post.slug}`}>
             <span class="title">
-              {post.data.title} &lt;
-              <FormattedDate pubDate={post.data.pubDate} />&gt;
+              {post.data.title}
             </span>
           </a>
         </li>
