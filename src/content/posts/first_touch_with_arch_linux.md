@@ -1,15 +1,15 @@
 ---
-title: "My first touch with Arch Linux"
-pubDate: "June 23 2024"
-description: "So I had an old ThinkPad T510 lying around in my room and I wondered what I could do with it. The BIOS was last updated in 2012 and the preinstalled Windows 10 ran on a 2.5\" HDD with a capacity of 160GB. As expected, the Windows experience was terrible, especially when considering the whole machine runs with 4GB of RAM. And now? Here is my experience with the installation of Arch Linux."
+title: My first touch with Arch Linux
+pubDate: June 23 2024
+description: 'So I had an old ThinkPad T510 lying around in my room and I wondered what I could do with it. The BIOS was last updated in 2012 and the preinstalled Windows 10 ran on a 2.5" HDD with a capacity of 160GB. As expected, the Windows experience was terrible, especially when considering the whole machine runs with 4GB of RAM. And now? Here is my experience with the installation of Arch Linux.'
 ---
 
-So I had an old ThinkPad T510 lying around in my room and I wondered what I could do with it: The BIOS was last updated in 2012 and the preinstalled Windows 10 ran on a 2,5" HDD with a capacity of 160GB. As expected, the Windows experience was terrible, especially when considering the whole machine runs with 4GB of RAM. First, it was clear I had to replace the HDD with a decent 2,5" SATA SSD. The mounting process was very easy: all I had to do was unscrew an extra lid from the backplate of the laptop and I had directly access to the SATA slot. Next, I looked up whether the battery, which you can unplug when pressing a bottom on the back of the laptop, was in good condition and well, it was surprisingly long: The BIOS diagnostic program promised a minimum runtime of 3 hours. But I will tell you more later.
+So I had an old ThinkPad T510 lying around in my room and I wondered what I could do with it: The BIOS was last updated in 2012 and the preinstalled Windows 10 ran on a 2,5" HDD with a capacity of 160GB. As expected, the Windows experience was terrible, especially when considering the whole machine runs with 4GB of RAM. First, it was clear I had to replace the HDD with a decent 2,5" SATA SSD. The mounting process was very easy: all I had to do was unscrew an extra lid from the backplate of the laptop and I had directly access to the SATA slot. Next, I looked up whether the battery, which you can unplug when pressing a bottom on the back of the laptop, was in good condition and well, it should hold surprisingly long: The BIOS diagnostic program promised a minimum runtime of 3 hours. But I will tell you more later.
 
 ## What Linux Distro to choose from?
 
 It was clear that I had to run a Linux Distro on the ThinkPad to make using it enjoyable. But which one should I choose from what feels like five thousand distros?<br>
-I originally planned on using AntiX Linux, a very lightweight Linux distribution, but a quick look in the live environment showed me that I'm not a huge friend of the overall look of XFCE. And yes, I know I could easily install another desktop or window manager, but in the meantime, I had a better idea: Why not install Arch Linux? I read much of it, and according to many people on Reddit and YouTube, it should have, besides Gentoo and Linux from Scratch, the Linux distro with the highest learning curve. Above all, there is the installation process itself.
+I originally planned on using AntiX Linux, a very lightweight Linux distribution, but a quick look in the live environment showed me that I'm not a huge friend of the overall look of XFCE. And yes, I know I could easily install another desktop or window manager, but in the meantime, I had a better idea: Why not install Arch Linux? I read much of it, and according to many people on Reddit and YouTube, it should be, besides Gentoo and Linux from Scratch, the Linux distro with the highest learning curve. Above all, there is the installation process itself.
 
 ## How do I install Arch?
 
