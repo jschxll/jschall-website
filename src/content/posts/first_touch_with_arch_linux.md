@@ -35,7 +35,7 @@ And then it begins, where I commit a big mistake. I didn't install the GRUB boot
 After I wanted to update the pacman mirrors, I encountered another problem. The system couldn't establish an Internet connection. I tried to use iwctl, but it didn't work because it waited for the iwd service, which I had to enable and start with systemctl. Although iwctl showed me that I was connected to my WLAN, I wasn't able to ping any servers. <br>
 After, one more time of reading the Arch Wiki, I found out, that I haven't enabled and started the NetworkManager service, systemd-networkd as well as systemd-resolved. **And it works !!**.
 
-## Finding a desktop evironment
+## Finding a desktop environment
 The only thing which was missing was a desktop environment, to gain the best Linux desktop experience. <br>
 Firstly, I thought Gnome would be a bottleneck on my ThinkPad T510 because it has an Intel Core I7 620M, with only a maximum of 8GB of RAM and two cores that have a base clock of 2,66GHz. But surprisingly, Gnome ran very smoothly and used only 1GB of RAM. 
 
